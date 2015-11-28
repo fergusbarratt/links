@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  description: MyText
+  weighting: 1
+  cluster_id: 
+
+two:
+  url: MyString
+  description: MyText
+  weighting: 1
+  cluster_id: 

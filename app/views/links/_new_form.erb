@@ -1,4 +1,4 @@
-<%= form_for [@cluster, @link] do |f| %>
+<%= form_for @link, url: cluster_links_path do |f| %>
   <% if @link.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
@@ -10,10 +10,13 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -23,6 +26,7 @@
     <%= f.label :weighting %><br>
     <%= f.number_field :weighting %>
   </div>
+  <%= f.hidden_field :cluster_id, :value => @link.cluster_id %>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -9,7 +9,7 @@
       <th>Description</th>
       <th>User</th>
       <th>Links</th>
-      <th colspan="3"></th>
+      <th colspan="4">Options</th>
     </tr>
   </thead>
 
@@ -18,13 +18,14 @@
       <tr>
         <td><%= cluster.name %></td>
         <td><%= cluster.description %></td>
-        <td><%= cluster.user %></td>
+        <td><%= cluster.user.email %></td>
         <td>
-          <%= cluster.links.each do |link| %> 
-          <% end %>
+        <% cluster.links.each do |link| %> 
+          <%= link_to link.name, link.url %> <br>
+        <% end %>
         </td>
-        <td><%= link_to 'Show', cluster %></td>
         <td><%= link_to 'New Link', new_cluster_link_path(cluster) %></td>
+        <td><%= link_to 'Show', cluster %></td>
         <td><%= link_to 'Edit', edit_cluster_path(cluster) %></td>
         <td><%= link_to 'Destroy', cluster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

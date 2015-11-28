@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127235350) do
+ActiveRecord::Schema.define(version: 20151128205027) do
 
   create_table "clusters", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151127235350) do
     t.integer  "cluster_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "name"
   end
 
   add_index "links", ["cluster_id"], name: "index_links_on_cluster_id"

@@ -43,7 +43,7 @@ class LinksController < ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params[:link])
-        format.html { redirect_to cluster_links_path, notice: 'Link was successfully updated.' }
+        format.html { redirect_to cluster_links_path(@cluster), notice: 'Link was successfully updated.' }
         format.json { render :show, status: :ok, location: @link }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class LinksController < ApplicationController
   def destroy
     @link.destroy
     respond_to do |format|
-      format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
+      format.html { redirect_to cluster_links_path(@cluster), notice: 'Link was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,14 +65,18 @@ class LinksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
-      @link = Link.find(params[:link])
+      @link = Link.find(params[:id])
     end
     def set_cluster
-      @cluster = Cluster.find(link_params[:cluster_id])
+      if link_params["cluster_id"].nil?
+        @cluster = Cluster.find(link_params["link"]["cluster_id"])
+      else
+        @cluster = Cluster.find(link_params["cluster_id"])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.permit(:cluster_id, :link=>[:url, :description, :weighting])
+      params.permit(:cluster_id, :link=>[:url, :description, :weighting, :name, :cluster_id])
     end
 end

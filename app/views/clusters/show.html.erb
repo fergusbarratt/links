@@ -6,14 +6,26 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @cluster.description %>
+  <% if @cluster.description.nil? %>
+    <strong>Description:</strong>
+    <%= @cluster.description %>
+  <% end %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @cluster.user %>
-</p>
+  <strong>Links:</strong>
+  <% @cluster.links.each do |link| %>
+    <br>
+    <%= link_to link.name, link.url %> 
+    <br>
+    <%= link.description %> 
+    <br>
+    <%= link_to 'edit', edit_link_path(:cluster_id => @cluster.id) %>
+    <%= link_to 'destroy', link_path(:cluster_id => @cluster.id, :id => link.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= @cluster.id %>
+  <% end %>
 
-<%= link_to 'Edit', edit_cluster_path(@cluster) %> |
+</p>
+<%= link_to 'New Link', new_cluster_link_path(@cluster) %> |
+<%= link_to 'Edit', edit_cluster_path %> |
 <%= link_to 'Back', clusters_path %>

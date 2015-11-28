@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :clusters do
-    resources :links  
+    resources :links, shallow: true
   end
   devise_for :users
   root 'home#index'

@@ -1,10 +1,11 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_cluster
   before_action :authenticate_user!
   # GET /links
   # GET /links.json
   def index
-    @links = @current_cluster.links.all
+    @links = @cluster.links.all
   end
 
   # GET /links/1
@@ -14,7 +15,7 @@ class LinksController < ApplicationController
 
   # GET /links/new
   def new
-    @link = @current_cluster.link.build
+    @link = @cluster.links.new
   end
 
   # GET /links/1/edit
@@ -24,7 +25,7 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = @current_cluster.link.build(link_params)
+    @link = @cluster.links.new(link_params[:link])
 
     respond_to do |format|
       if @link.save
@@ -41,7 +42,7 @@ class LinksController < ApplicationController
   # PATCH/PUT /links/1.json
   def update
     respond_to do |format|
-      if @link.update(link_params)
+      if @link.update(link_params[:link])
         format.html { redirect_to cluster_links_path, notice: 'Link was successfully updated.' }
         format.json { render :show, status: :ok, location: @link }
       else
@@ -64,13 +65,14 @@ class LinksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
-      @current_cluster = Cluster.find(params["cluster_id"])
-      @link = Link.find(params[:id])
+      @link = Link.find(params[:link])
     end
-
+    def set_cluster
+      @cluster = Cluster.find(link_params[:cluster_id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:url, :description, :weighting, :cluster_id)
+      params.permit(:cluster_id, :link=>[:url, :description, :weighting])
     end
 end

@@ -1,7 +1,7 @@
 <%= form_for(@cluster) do |f| %>
   <% if @cluster.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cluster.errors.count, "error") %> prohibited this cluster from being saved:</h2>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@cluster.errors.count, "error") %> prohibited this cluster from being saved:</h4>
 
       <ul>
       <% @cluster.errors.full_messages.each do |message| %>
@@ -11,15 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="btn-group right"><%= f.submit 'New', class: 'btn btn-danger' %>
+  
+  <%= link_to 'Back', clusters_path, class:"btn btn-default"%>
+  
   </div>
 <% end %>

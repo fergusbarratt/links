@@ -1,7 +1,7 @@
 <%= form_for @link, url: cluster_links_path do |f| %>
   <% if @link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
 
       <ul>
       <% @link.errors.full_messages.each do |message| %>
@@ -10,24 +10,25 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :url %><br>
-    <%= f.text_field :url %>
+    <%= f.text_field :url, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %> <br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :weighting %><br>
-    <%= f.number_field :weighting %>
+    <%= f.number_field :weighting, class: 'form-control' %>
   </div>
   <%= f.hidden_field :cluster_id, :value => @link.cluster_id %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="btn-group right"><%= f.submit 'Create new link', class: 'btn btn-danger' %>
+    
+    <%= link_to 'Back', clusters_path, class:"btn btn-default"%>
+    </div>
 <% end %>

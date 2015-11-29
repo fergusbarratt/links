@@ -1,3 +1,6 @@
+.page-header {
+  margin-top: 10px;
+}
 html {
   position: relative;
   min-height: 100%;
@@ -11,6 +14,18 @@ body {
   float: right;
   margin: 10px;
 }
+nav {
+  .navbar-header {
+    .navbar-brand {
+      text-transform: uppercase;
+      font-size: 2em;
+      font-weight: bold;
+      &:hover, &:active {
+        color: #232323;
+      }
+    }
+  }
+}
 .footer {
   position: absolute;
   bottom: 0;
@@ -18,7 +33,101 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #f5f5f5;
+  padding: 0;
+  margin-left: 0;
+  .footerlist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top:20px;
+    li {
+      display: inline;
+      padding: 20px;
+    }
+    .lfooter {
+      display: inline-block;
+      position: relative;
+      float: left;
+      padding:0;
+      li {
+        color: #888;
+      }
+    }
+    .rfooter {
+      display: inline-block;
+      position: relative;
+      float: right;
+      padding: 0;
+    }
+  }
+}
+.cluster-title {
+  font-size:1.2em;
+  padding: 0;
+}
+
+.cluster-settings {
+  padding-top:2px;
+  a {
+    padding: 0;
+    padding-right: 10px;
+  }
+}
+.linklist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 40px;
+  li {  
+    display: inline;
+  }
+  .leftlist {
+    position: relative;
+    float: left;
+    .linkshow {
+      @extend h4;
+      a {
+        &:hover, &:active {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .rightlist {
+    position: relative;
+    float: right;
+    padding-top: 2px;
+  }
+}
+.linkdescription {
+  text-align:right;
+  font-style: italic;
+}
+
+.center {
+  text-align: center;
+}
+.right {
+  position: relative;
+  float: right;
+}
+.left {
+  text-align: left;
 }
 .debug {
-  margin-top:40px;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+a {
+  &:hover, &:active {
+    text-decoration: none;
+  }
+}
+.checkbox {
+  margin-left: 20px;
+}
+.spacer {
+  padding: 30px;
 }

@@ -1,18 +1,41 @@
-  <div class="list-group">
-  <div class="page-header h3"><%= @cluster.name %></div>
-    
+  <div class="panel panel-default">
+    <div class="panel-heading"><h4><%= @cluster.name %></h4></div>
+
     <% if !@cluster.description.empty? %>
-      <h4>Description:</h4>
-      <div class="list-group-item"><%= @cluster.description %></div>
+    <div class="panel-body">
+      <div class="linkdescription"><%= @cluster.description %></div>
+    </div>
     <% end %>
-    <% @cluster.links.each do |link| %>
-      <div class="list-group-item"><%= link_to link.name, link.url %>
-      <%= link.description %> 
-      <%= link_to 'edit', edit_link_path(:cluster_id => @cluster.id) %>
-      <%= link_to 'destroy', link_path(:cluster_id => @cluster.id, :id => link.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <div class="list-group">
+      <% @cluster.links.each do |link| %>
+      <div class="list-group-item">
+        <ul class="linklist">
+          <div class="leftlist">
+            <p class="linkshow"><%= link_to link.name, link.url %></p>
+          </div>
+
+          <div class="rightlist">
+            <div class="btn-group">
+              <%= link_to 'edit', edit_link_path(:cluster_id => @cluster.id, :id => link.id), class: 'btn' %>
+
+              <%= link_to 'destroy', link_path(:cluster_id => @cluster.id, :id => link.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+            </div>
+          </div>
+
+        </ul>
+        <div class="linkdescription">
+          <%= link.description %>
+        </div> 
       </div>
-    <% end %>
-    
-    <%= link_to 'New Link', new_cluster_link_path(@cluster) %> |
-    <%= link_to 'Edit', edit_cluster_path %> |
-    <%= link_to 'Back', clusters_path %></div>
+
+      <% end %>
+    </div>
+  </div>
+  <div class="btn-group right">
+    <%= link_to 'New Link', new_cluster_link_path(@cluster), class: 'btn btn-danger' %> 
+    <%= link_to 'Edit', edit_cluster_path, class: 'btn btn-default' %> 
+    <%= link_to 'Back', clusters_path, class: 'btn btn-default' %>
+  </div>
+  <div class="spacer"></div>
+

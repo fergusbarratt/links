@@ -1,38 +1,15 @@
-<p id="notice"><%= notice %></p>
+<h1 class="page-header">Listing Clusters</h1>
 
-<h1>Listing Clusters</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>User</th>
-      <th>Links</th>
-      <th colspan="4">Options</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clusters.each do |cluster| %>
-      <tr>
-        <td><%= cluster.name %></td>
-        <td><%= cluster.description %></td>
-        <td><%= cluster.user.email %></td>
-        <td>
-        <% cluster.links.each do |link| %> 
-          <%= link_to link.name, link.url %> <br>
-        <% end %>
-        </td>
-        <td><%= link_to 'New Link', new_cluster_link_path(cluster) %></td>
-        <td><%= link_to 'Show', cluster %></td>
-        <td><%= link_to 'Edit', edit_cluster_path(cluster) %></td>
-        <td><%= link_to 'Destroy', cluster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="list-group">
+  <% @clusters.each do |cluster| %>
+    <div class="list-group-item"><h4><%= cluster.name %></h4></div>    
+    <% cluster.links.each do |link| %> 
+    <%= link_to link.name, link.url, class:"list-group-item" %>
+    <% end %>    
+    <%= link_to 'New Link', new_cluster_link_path(cluster), class:"list-group-item" %>
+    <div class="list-group-item"><%= link_to 'Show', cluster %> |
+    <%= link_to 'Edit', edit_cluster_path(cluster) %> |
+    <%= link_to 'Destroy', cluster, method: :delete, data: { confirm: 'Are you sure?' } %></div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Cluster', new_cluster_path %>
+<%= link_to 'New Cluster', new_cluster_path, class: "new-link" %>
+</div>

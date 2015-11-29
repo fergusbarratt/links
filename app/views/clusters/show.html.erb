@@ -1,31 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @cluster.name %>
-</p>
-
-<p>
-  <% if @cluster.description.nil? %>
-    <strong>Description:</strong>
-    <%= @cluster.description %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Links:</strong>
-  <% @cluster.links.each do |link| %>
-    <br>
-    <%= link_to link.name, link.url %> 
-    <br>
-    <%= link.description %> 
-    <br>
-    <%= link_to 'edit', edit_link_path(:cluster_id => @cluster.id) %>
-    <%= link_to 'destroy', link_path(:cluster_id => @cluster.id, :id => link.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= @cluster.id %>
-  <% end %>
-
-</p>
-<%= link_to 'New Link', new_cluster_link_path(@cluster) %> |
-<%= link_to 'Edit', edit_cluster_path %> |
-<%= link_to 'Back', clusters_path %>
+  <div class="list-group">
+  <div class="page-header h3"><%= @cluster.name %></div>
+    
+    <% if !@cluster.description.empty? %>
+      <h4>Description:</h4>
+      <div class="list-group-item"><%= @cluster.description %></div>
+    <% end %>
+    <% @cluster.links.each do |link| %>
+      <div class="list-group-item"><%= link_to link.name, link.url %>
+      <%= link.description %> 
+      <%= link_to 'edit', edit_link_path(:cluster_id => @cluster.id) %>
+      <%= link_to 'destroy', link_path(:cluster_id => @cluster.id, :id => link.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+    
+    <%= link_to 'New Link', new_cluster_link_path(@cluster) %> |
+    <%= link_to 'Edit', edit_cluster_path %> |
+    <%= link_to 'Back', clusters_path %></div>

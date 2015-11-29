@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /profiles
   # GET /profiles.json
   def index
@@ -64,9 +64,14 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+      if Profile.find_by(params[:id]) 
+        @profile = Profile.find_by(params[:id]) 
+      else 
+        @profile = current_user.profile.new(:admin => false, :user_id => current_user.id)
+        @profile.save
+        # Create a profile with the user parameters. 
+      end
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
       params.require(:profile).permit(:admin, :user_id)

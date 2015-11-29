@@ -1,0 +1,268 @@
+
+---
+clusters:
+  columns:
+  - id
+  - name
+  - description
+  - user_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Physics
+    - physics links
+    - 1
+    - '2015-11-28 20:54:13.316227'
+    - '2015-11-29 16:26:54.996148'
+  - - 2
+    - Rails
+    - ''
+    - 1
+    - '2015-11-28 21:01:35.128729'
+    - '2015-11-28 21:01:35.128729'
+  - - 3
+    - Music
+    - ''
+    - 1
+    - '2015-11-28 21:26:21.068787'
+    - '2015-11-28 21:26:21.068787'
+  - - 6
+    - Numerics & Science
+    - ''
+    - 1
+    - '2015-11-29 12:00:00.150252'
+    - '2015-11-29 16:39:04.829517'
+  - - 7
+    - General Interest
+    - ''
+    - 1
+    - '2015-11-29 16:45:35.566641'
+    - '2015-11-29 16:45:35.566641'
+  - - 9
+    - My Links
+    - "some links\r\n"
+    - 2
+    - '2015-11-29 20:42:29.393759'
+    - '2015-11-29 20:42:29.393759'
+
+---
+links:
+  columns:
+  - id
+  - url
+  - description
+  - weighting
+  - cluster_id
+  - created_at
+  - updated_at
+  - name
+  records: 
+  - - 13
+    - http://www.scottaaronson.com/democritus/lec9.html
+    - Quantum Mechanics as Quantum probability with the two norm
+    - 1
+    - 1
+    - '2015-11-28 23:54:33.432687'
+    - '2015-11-29 16:40:23.557228'
+    - Scott Aaronson
+  - - 14
+    - http://perimeterinstitute.ca/personal/cfuchs/VaccineQPH.pdf
+    - Quantum Theory as Quantum Information
+    - 1
+    - 1
+    - '2015-11-29 14:13:26.571466'
+    - '2015-11-29 14:13:26.571466'
+    - Quantum Foundations
+  - - 15
+    - https://mediasite.online.ncsu.edu/online/Catalog/catalogs/ma-580-kelley
+    - Numerical Analysis lectures at UCNC
+    - 1
+    - 6
+    - '2015-11-29 16:36:16.682072'
+    - '2015-11-29 16:36:16.682072'
+    - Lectures
+  - - 16
+    - http://matplotlib.org/style_changes.html
+    - 'from ScipyCon 2015 '
+    - 1
+    - 6
+    - '2015-11-29 16:36:46.836889'
+    - '2015-11-29 16:37:50.133711'
+    - Colormaps
+  - - 17
+    - http://matplotlib.org/style_changes.html
+    - ''
+    - 
+    - 6
+    - '2015-11-29 16:37:04.414095'
+    - '2015-11-29 16:37:33.184766'
+    - 3D Visualisation in Python
+  - - 18
+    - https://soundcloud.com/free-speed-nation
+    - ''
+    - 1
+    - 3
+    - '2015-11-29 16:38:20.174876'
+    - '2015-11-29 16:38:20.174876'
+    - Charlie's Music
+  - - 19
+    - http://www.rbcs-us.com/documents/Why-Most-Unit-Testing-is-Waste.pdf
+    - ''
+    - 5
+    - 2
+    - '2015-11-29 16:38:46.426678'
+    - '2015-11-29 16:38:46.426678'
+    - Rant about Unit testing
+  - - 20
+    - http://eigen.tuxfamily.org/index.php?title=Main_Page
+    - ''
+    - 1
+    - 6
+    - '2015-11-29 16:39:48.647198'
+    - '2015-11-29 16:39:48.647198'
+    - Eigen C++ Linear Algebra Package
+  - - 21
+    - http://paperscape.org/
+    - ''
+    - 1
+    - 7
+    - '2015-11-29 16:46:16.903137'
+    - '2015-11-29 16:46:16.903137'
+    - Arxiv papers map
+  - - 22
+    - https://mattbrictson.com/lightning-fast-sass-reloading-in-rails
+    - ''
+    - 1
+    - 2
+    - '2015-11-29 16:46:37.436434'
+    - '2015-11-29 16:46:37.436434'
+    - Speeding up live-reload
+  - - 23
+    - http://www.dspguru.com/
+    - ''
+    - 1
+    - 6
+    - '2015-11-29 16:46:53.573696'
+    - '2015-11-29 16:46:53.573696'
+    - DSP
+  - - 24
+    - http://www.linuxvoice.com/core-technology-signals/
+    - ''
+    - 3
+    - 6
+    - '2015-11-29 16:47:22.865879'
+    - '2015-11-29 16:47:22.865879'
+    - Linux Signals
+  - - 25
+    - http://andywoodruff.com/blog/where-to-hate-daylight-saving-time-and-where-to-love-it/
+    - ''
+    - 1
+    - 7
+    - '2015-11-29 16:47:59.934682'
+    - '2015-11-29 16:47:59.934682'
+    - Daylight Savings
+  - - 26
+    - https://www.linkedin.com/pulse/ifiwere22-okay-im-23-joe-glover?trk=mp-reader-card
+    - ''
+    - 1
+    - 7
+    - '2015-11-29 16:48:21.291006'
+    - '2015-11-29 16:48:21.291006'
+    - If i were 22
+  - - 27
+    - http://stackoverflow.com/questions/657130/fastest-ways-to-move-the-cursor-on-a-terminal-command-line
+    - ''
+    - 2
+    - 6
+    - '2015-11-29 16:48:52.558640'
+    - '2015-11-29 16:48:52.558640'
+    - CMD bindings
+  - - 30
+    - http://getbootstrap.com/components/
+    - ''
+    - 
+    - 9
+    - '2015-11-29 20:44:16.938715'
+    - '2015-11-29 20:44:16.938715'
+    - Bootstrap
+  - - 31
+    - http://stackoverflow.com/questions/7291381/rails-how-to-migrate-data-from-development-sqlite3-database-to-production-mysql
+    - ''
+    - 
+    - 2
+    - '2015-11-29 21:29:22.557852'
+    - '2015-11-29 21:29:22.557852'
+    - migrate data from dev to prod
+
+---
+users:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - fergus.barratt.12@ucl.ac.uk
+    - "$2a$10$gUk9t/Aku8K5MYdTvRmvG.9zQWKd6Ec384tiFWOr2xD/sotv4FDdK"
+    - 
+    - 
+    - '2015-11-29 21:17:46.988970'
+    - 6
+    - '2015-11-29 21:17:47.003091'
+    - '2015-11-29 18:55:17.332230'
+    - "::1"
+    - "::1"
+    - '2015-11-28 20:53:52.337977'
+    - '2015-11-29 21:17:47.006768'
+  - - 2
+    - fergus.barratt00@gmail.com
+    - "$2a$10$os.Ygz0ALWcuU4852lqt3.ZBDX1Cl/k46FOEQt.ZcrBTaRyMl8Gz2"
+    - 
+    - 
+    - 
+    - 1
+    - '2015-11-29 20:41:51.939537'
+    - '2015-11-29 20:41:51.939537'
+    - "::1"
+    - "::1"
+    - '2015-11-29 20:41:51.933580'
+    - '2015-11-29 20:41:51.940455'
+  - - 3
+    - little@one.com
+    - "$2a$10$1d7.Se7yb5IFC.H0hvHlcOrC6TTSQx7QAhZYtk4rXu/AsOQcRtona"
+    - 
+    - 
+    - 
+    - 1
+    - '2015-11-29 21:10:18.045668'
+    - '2015-11-29 21:10:18.045668'
+    - "::1"
+    - "::1"
+    - '2015-11-29 21:10:18.033522'
+    - '2015-11-29 21:10:18.046869'
+
+---
+profiles:
+  columns:
+  - id
+  - admin
+  - user_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - true
+    - 1
+    - '2015-11-29 19:38:07.017812'
+    - '2015-11-29 19:53:30.278947'

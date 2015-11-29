@@ -1,14 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @profile.admin %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<h4>Email:</h4>
+<%= current_user.email %> <br>
+<%= "No Current Profile" if !current_user.profile %>
+<% if current_user.profile.admin %>
+  <h4>Admin Tools:</h4>
+  <%= link_to "User Index", profiles_path %>
+  <% end %>

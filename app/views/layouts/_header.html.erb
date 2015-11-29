@@ -8,7 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "linker", root_path, class: 'navbar-brand logo' %>
+      <% if current_user.nil? %>
+        <%= link_to "linker", root_path, class: 'navbar-brand logo' %>
+      <% else %>
+        <%= link_to "linker", clusters_path, class: 'navbar-brand logo'%>
+        <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,7 +23,13 @@
             <li><%= link_to "signin", new_user_session_path %></li>
             <li><%= link_to "signup", new_user_registration_path %></li>
           <% else %>
-            <li><%= link_to "profile", '#' %></li>
+            <li>
+            <% if current_user.profile %>
+              <%= link_to 'profile', profile_path(current_user) %>
+            <% else %> 
+            <%= link_to 'profile', '#' %>
+            <% end %>
+            </li>
             <li><%= link_to "signout", destroy_user_session_path, :method => :delete %></li>
             <% end %>
         

@@ -5,6 +5,6 @@
 <%= link_to 'Edit my profile', edit_registration_path(current_user) %>
 <% if current_user.profile.admin %>
   <h4>Admin Tools:</h4>
-  <%= link_to "User Index", profiles_path %>
+  <%= link_to "Profile Index", profiles_path %>
   <% end %>
 

@@ -1,4 +1,7 @@
 <div class="list-group">
+  <% if @clusters.empty? %>
+    <%= "Nothing here? Create a cluster to start storing links:" %>
+  <% end %>
   <% @clusters.each do |cluster| %>
   <div class="list-group-item">
     <%= link_to cluster.name, cluster, class:'btn cluster-title'%> 

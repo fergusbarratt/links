@@ -1,13 +1,23 @@
-<footer class="footer">
-  <div class="container-fluid">
-    <ul class="footerlist">
-      <div class="lfooter">
-        <li>A place for interesting things</li>
-      </div>
-      <div class="rfooter">
-        <li><%= link_to 'about', '/about' %></li>
-        <li><%= link_to 'contact', '/contact' %></li>
-      </div>
-    </ul>
-  </div>
+<footer>
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="navbar-collapse collapse" id="footer-body">
+                <ul class="nav navbar-nav navbar-left">
+                      <li class="site-description">A place for interesting things</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                      <li><%= link_to 'about', '/about' %></li>
+                      <li><%= link_to 'contact', '/contact' %></li>
+                </ul>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#footer-body">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+        </div>
+    </div>
 </footer>
